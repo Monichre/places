@@ -23,15 +23,16 @@ $(document).ready(function(){
     var newPlace = new Places(userCountry, userLandMarks, userSeason, userNotes);
     //  Places.prototype.placeToShow = function() {
 
-       userArray.forEach(function(input) {
+       userArray.forEach(function(arrayItem) {
          for(i = 0; i < userArray.length; i ++){
-        console.log(Object.keys(newPlace)[i]);
-          console.log(input);
+           console.log(Object.keys(newPlace)[i]);
+           console.log(arrayItem);
+          //  console.log(Object.values(newPlace)[i]);
 
-           if (input === Object.keys(newPlace)[i]) {
+           if (arrayItem === Object.keys(newPlace)[i]) {
 
-           $("." + input).text(Object.keys(newPlace)[i]);
-           console.log(input);
+           $("." + arrayItem).text(newPlace[arrayItem]);
+
            $("#show-place").show();
          }
          }
