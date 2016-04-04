@@ -1,38 +1,46 @@
-//BUSINESS LOGIC
-function Place(location, season, note) {
-  this.locationName = location;
-  this.seasonName = season;
-  this.noteInfo = note;
+//*********************** BIZ *************************//
+
+function Places(country, landmarks, season, notes) {
+  this.country = country;
+  this.landmarks = landmarks;
+  this.season = season;
+  this.notes = notes;
+
 }
 
-Place.prototype.fullDescription = function() {
-  return this.locationName + " " + this.seasonName + " " + this.noteInfo;
-}
 
-//UI LOGIC
-$(document).ready(function() {
 
-  $("form#description").submit(function(event) {
+//*********************** Pleasure *********************//
+
+$(document).ready(function(){
+  $("#description").submit(function(event){
     event.preventDefault();
+    var userCountry = $("#country").val();
+    var userLandMarks = $("#landmarks").val();
+    var userSeason = $("#season").val();
+    var userNotes = $("#notes").val();
+    var userArray = ["country", "landmarks", "season", "notes"];
+    var newPlace = new Places(userCountry, userLandMarks, userSeason, userNotes);
+    //  Places.prototype.placeToShow = function() {
 
-    var inputtedLocation = $("input#location").val();
-    var inputtedSeason = $("input#season").val();
-    var inputtedNote = $("input#note").val();
+       userArray.forEach(function(input) {
+         for(i = 0; i < userArray.length; i ++){
+        console.log(Object.keys(newPlace)[i]);
+          console.log(input);
 
-    var newPlace = new Place(inputtedLocation, inputtedSeason, inputtedNote);
+           if (input === Object.keys(newPlace)[i]) {
 
-    $("ul#list").append("<li><span class='places'>" + newPlace.fullDescription() + "</span></li>");
+           $("." + input).text(Object.keys(newPlace)[i]);
+           console.log(input);
+           $("#show-place").show();
+         }
+         }
 
-    $(".places").last().click(function() {
-      $("#show-place").show();
-      $("#show-place h2").text(newPlace.locationName);
-      $(".season-name").text(newPlace.seasonName);
-      $(".notes").text(newPlace.noteInfo);
-    });
+      });
+    // };
 
-    $("input#location").val("");
-    $("input#season").val("");
-    $("input#note").val("");
+
+
 
   });
 });

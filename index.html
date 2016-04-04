@@ -6,22 +6,29 @@
     <title>Places I've Been</title>
   </head>
   <body>
-    <h1>Places I've Been</h1>
+    <h1>\\ Places I've Been //</h1>
     <form id="description">
-      <label for="location">Enter location</label>
-      <input id="location"></input>
-      <label for="season">Enter season</label>
+      <label for="country">Enter Country:</label>
+      <input id="country"></input>
+      <label for="landmarks">Enter landmarks:</label>
+      <input id="landmarks"></input>
+      <label for="season">Enter season:</label>
       <input id="season"></input>
-      <label for="note">Enter notes</label>
-      <input id="note"></input>
+      <label for="notes">Useful notes:</label>
+      <input id="notes"></input>
       <button id="submit">Add</button>
     </form>
     <ul class="list">
     </ul>
     <div id="show-place">
-      <h2></h2>
-      <p>Season: <span class="season-name"></span></p>
-      <p>Notes: <span class="notes"></span></p>
+      <div id="cloud">
+        <h2></h2>
+          <p><span class="country"></span></p>
+          <p><span class="landmarks"></span></p>
+          <p><span class="season"></span></p>
+          <p><span class="notes"></span></p>
+          <span class="shadow"></span>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="js/script.js"></script>
